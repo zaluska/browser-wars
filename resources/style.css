@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css?family=Oswald');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding: 0px;
+  margin: 0px;
+  font-family: 'Oswald', sans-serif;
+}
+
+/* Adding new font for headers */
+
+@font-face {
+  font-family: 'Star Jedi Hollow';
+  src: url('jedi.woff2') format('woff2'), url('jedi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Creation classes to style all headers */
+
+.header {
+  text-align: center;
+  color: white;
+}
+
+.header h1 {
+  font-family: 'Star Jedi Hollow';
+  text-shadow: 0 0 15px #FFFFFF;
+  font-size: 6em;
+  font-weight: normal;
+  line-height: 1em;
+}
+
+.header ul {
+  font-size: 1.5em;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-bottom: 8px double white;
+  top: 0;
+}
+
+.header li {
+  float: left;
+  text-shadow: 0 0 15px #FFFFFF;
+}
+
+.header li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.header li a:hover {
+  color: black;
+  background-color: white;
+}
+
+.active {
+  background-color: #4CAF50;
+}
+
+/* Seting a background color */
+
+body {
+  background-image: url("background.jpg");
+  background-color: black;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+/* The actual timeline (the vertical ruler) */
+
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* Creation of wrapper around content */
+
+.wrapper {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* Placing the wrapper to the left */
+
+.left {
+  left: 0;
+}
+
+/* Placing the wrapper to the right */
+
+.right {
+  left: 50%;
+}
+
+/* Adding arrows to the left wrap (pointing right) */
+
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 42px;
+  width: 0;
+  z-index: 1;
+  right: 20px;
+  border: medium solid white;
+  border-width: 20px 0 20px 20px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Adding arrows to the right wrap (pointing left) */
+
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 42px;
+  width: 0;
+  z-index: 1;
+  left: 20px;
+  border: medium solid white;
+  border-width: 20px 20px 20px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fixing the pointer for wrapper on the right side */
+
+.right::after {
+  left: -16px;
+}
+
+/* Creation of the actual content */
+
+.content {
+  padding: 20px 30px;
+  text-align: justify;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+  font-size: 1em;
+}
+
+/* Styling  images */
+
+.img {
+  height: auto;
+  width: 100%;
+  max-width: 600px;
+}
+
+.imgS {
+  height: auto;
+  width: 100%;
+  max-width: 200px;
+}
+
+/* Styling back to top link */
+
+.content .top a:link, .content .top a:visited {
+  font-size: 0.7em;
+  color: black;
+  text-decoration: none;
+}
+
+.content .top a:hover {
+  text-decoration: underline;
+}
+
+.war .top a:link, .war .top a:visited {
+  font-size: 0.7em;
+  color: white;
+  text-decoration: none;
+}
+
+.war .top a:hover {
+  text-decoration: underline;
+}
+
+.source {
+  font-size: 0.8em;
+  color: #000000;
+  opacity: 0.8;
+  background-color: white;
+  padding: 30px;
+  font-family: sans-serif;
+  border-top: 8px double white;
+}
+
+.source a:link, .source a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.source a:hover {
+  text-decoration: underline;
+}
+
+.year {
+  background-color: transparent;
+  color: white;
+  padding: 10px;
+}
+
+.year h2 {
+  font-size: 3em;
+  font-weight: bold;
+  margin: 5px;
+}
+
+.left .year {
+  text-align: right;
+}
+
+.war {
+  color: white;
+  background-color: #680f0f;
+  border: 3px solid white;
+}
+
+/* Styling footer */
+
+.footer {
+  text-shadow: 0 0 15px #FFFFFF;
+  text-align: center;
+  color: white;
+  line-height: 1.5em;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer a:visited {
+  color: white;
+  font-size: 0.9em;
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
+
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! CSS for small resolutions only starts !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
+/* Creation of media queries - responsive timeline on screens less than 600px wide */
+
+@media screen and (max-width: 600px) {
+  .header h1 {
+    font-size: 3em;
+  }
+  /* Placing the timelime to the left */
+  .timeline::after {
+    left: 31px;
+  }
+  /* Full-width wrapper */
+  .wrapper {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+  /* Pointing leftwards all arrows */
+  .wrapper::before {
+    left: 50px;
+    border: medium solid white;
+    border-width: 20px 20px 20px 0;
+    border-color: transparent white transparent transparent;
+  }
+  /* Making all right wrapper behave like the left ones */
+  .right {
+    left: 0%;
+  }
+  .left .year {
+    text-align: left;
+  }
+}
+/* !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! CSS for small resolutions only ends  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! */
